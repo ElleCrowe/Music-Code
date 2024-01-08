@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+import java.util.ArrayList;
+
+public class Playlist {
+    Song song;
+    public ArrayList<Song> songs = new ArrayList<Song>();
+
+    public Playlist() 
+    {
+        songs.add(new Song("Outkast" , "Ms. Jackson" , 87437436 ));
+        songs.add(new Song("Nelly" , "Dilemma" ,  12022336));
+        songs.add(new Song("Artic Monkeys" , "505" , 136234973));
+        songs.add(new Song("Liam Gallagher" , "Come Back To Me" , 4527932));
+        songs.add(new Song( "SZA" , "Love Galore" ,102394236));
+        songs.add(new Song("Summer Walker" , ("Session 32") , (94374326)));
+        songs.add(new Song("Beyonce" , ("Crazy in Love"), (55521616)));
+        songs.add(new Song("Nicki Minaj" , "Majesty", 18237436));
+        songs.add(new Song("Saweetie" , "ICY GIRL" , 47337436));
+        songs.add(new Song("Rihanna" , "We Ride" , (9740036)));
+    }
+
+
+    public void addSong()
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("What is the name of the artist you would like within your Playlist?");
+
+        String artist = scanner.nextLine();
+
+        System.out.println("What is the name of the song from this artist?");
+
+        String title = scanner.nextLine();
+
+        System.out.println("How many plays does this song have?");
+
+        int playCount = scanner.nextInt();
+
+        Song newSong = new Song(artist, title, playCount);
+
+        songs.add(newSong);
+    }
+
+    public void printSong()
+    {
+        for (Song currentSong : songs)
+        {
+             System.out.println(currentSong.gettitle());
+        }
+    
+    }
+
+
+    public void givenPlays()
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("How many streams does this song have?");
+
+        int streams = scanner.nextInt(); 
+
+        System.out.println("these are all the songs with a greater number of streams: ");
+
+        for(Song givenPlays : songs)
+        { 
+            if(givenPlays.getplayCount() > streams )
+            {
+                System.out.println("Artist " + givenPlays.getartist() + " Title " + givenPlays.gettitle() + " Streams " + givenPlays.getplayCount());
+            }
+        }
+    }
+
+    public void removeSong() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println( "What is the song name you would like to remove");
+        String removeTitle = scanner.nextLine();
+        
+        Song songToRemove = null;
+        for(Song removeSong : songs) {
+            if (removeSong.gettitle().equals(removeTitle)) {
+            songToRemove = removeSong;
+            break; // Exit the loop once match is found
+        }
+    }
+        if (songToRemove !=null) { 
+            songs.remove(songToRemove);
+            } else {
+        System.out.println("The song you are trying to remove cannot be located, please try again");
+    }
+
+    scanner.close();
+}}

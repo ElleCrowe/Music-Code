@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Playsong {
+   
+    public static void main(String[]args)
+    {
+        Playlist playPlaylist = new Playlist();
+
+        Scanner scanner = new Scanner(System.in);
+
+        String answer;
+
+        do{ 
+            System.out.println("Do you want to add a song yes/no");
+
+            answer = scanner.nextLine();
+
+            if(answer.equalsIgnoreCase("Yes"))
+            { 
+                playPlaylist.addSong();
+                System.out.println("Your song has been successfully added to this Playlist.");
+            }
+        }while(answer.equalsIgnoreCase("Yes"));
+
+        String answer2;
+        do{ 
+            System.out.println("Do you want to remove a song yes/no");
+
+            answer2 = scanner.nextLine();
+
+            if(answer2.equalsIgnoreCase("Yes"))
+            {
+                playPlaylist.removeSong();
+
+                System.out.println("The song has been successfully removed from the Playlist.");
+
+                //playPlaylist.printSong();
+
+                scanner.close();
+            }
+            }while(answer.equalsIgnoreCase("Yes"));
+
+            String answer3; 
+            do
+            {
+                System.out.println("do you want to view your playlist"); 
+                answer3 = scanner.nextLine(); 
+
+                if(answer3.equalsIgnoreCase("Yes"))
+                {
+                    playPlaylist.printSong();
+                }
+                
+            
+                
+            }while(answer3.equalsIgnoreCase("Yes"));
+
+            String answer4; 
+            do
+            {
+                System.out.println("Do you want to enter in a minumum number of streams"); 
+
+                answer4 = scanner.nextLine(); 
+
+                if(answer4.equalsIgnoreCase("Yes"))
+                {
+                    playPlaylist.givenPlays();
+                }
+            }while(answer4.equalsIgnoreCase("Yes"));
+        }  
+    }
